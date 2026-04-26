@@ -72,12 +72,12 @@ android {
         production {
             dimension "version"
             applicationIdSuffix ""
-            buildName "RustDesk AI"
+            // buildName 已删除，修复构建错误
         }
         development {
             dimension "version"
             applicationIdSuffix ".dev"
-            buildName "RustDesk AI Dev"
+            // buildName 已删除，修复构建错误
         }
     }
 
