@@ -8,6 +8,11 @@ jobs:
   build:
     runs-on: ubuntu-latest
 
+    # 关键修复：指定工作目录为你的项目路径
+    defaults:
+      run:
+        working-directory: ./rustdesk-app-package/flutter
+
     steps:
       - name: Checkout code
         uses: actions/checkout@v4
