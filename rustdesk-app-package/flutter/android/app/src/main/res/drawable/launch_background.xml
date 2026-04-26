@@ -1,0 +1,6 @@
+
+&lt;?xml version="1.0" encoding="utf-8"?&gt;
+&lt;layer-list xmlns:android="http://schemas.android.com/apk/res/android"&gt;
+    &lt;item android:drawable="@android:color/white" /&gt;
+&lt;/layer-list&gt;
+

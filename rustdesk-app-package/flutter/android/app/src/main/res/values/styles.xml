@@ -1,0 +1,11 @@
+
+&lt;?xml version="1.0" encoding="utf-8"?&gt;
+&lt;resources&gt;
+    &lt;style name="LaunchTheme" parent="@android:style/Theme.Light.NoTitleBar"&gt;
+        &lt;item name="android:windowBackground"&gt;@drawable/launch_background&lt;/item&gt;
+    &lt;/style&gt;
+    &lt;style name="NormalTheme" parent="@android:style/Theme.Light.NoTitleBar"&gt;
+        &lt;item name="android:windowBackground"&gt;?android:colorBackground&lt;/item&gt;
+    &lt;/style&gt;
+&lt;/resources&gt;
+

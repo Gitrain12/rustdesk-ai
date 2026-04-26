@@ -1,0 +1,13 @@
+{
+  "id": "rustdesk-ai-build",
+  "image": "ubuntu:22.04",
+  "env": {
+    "FLUTTER_HOME": "/opt/flutter",
+    "JAVA_HOME": "/usr/lib/jvm/java-17-openjdk-amd64"
+  },
+  "startup": [
+    "apt update && apt install -y curl git unzip openjdk-17-jdk android-sdk",
+    "curl -L https://storage.googleapis.com/flutter_infra_release/releases/stable/linux/flutter_linux_3.24.0-stable.tar.xz | tar -xJ -C /opt",
+    "export PATH=$PATH:/opt/flutter/bin:/opt/flutter/bin/cache/dart-sdk/bin"
+  ]
+}

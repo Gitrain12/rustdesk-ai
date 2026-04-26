@@ -1,0 +1,48 @@
+version: '3.8'
+
+services:
+  ai-backend:
+    container_name: rustdesk-ai-backend
+    build:
+      context: ./ai-backend
+      dockerfile: Dockerfile
+    ports:
+      - "8080:8080"
+    environment:
+      - NODE_ENV=production
+      - PORT=8080
+      - OPENAI_API_KEY=${OPENAI_API_KEY}
+      - JWT_SECRET=${JWT_SECRET}
+      - ALLOWED_ORIGINS=${ALLOWED_ORIGINS}
+      - LOG_LEVEL=info
+    volumes:
+      - ./ai-backend/logs:/app/logs
+    restart: unless-stopped
+    healthcheck:
+      test: ["CMD", "node", "-e", "require('http').get('http://localhost:8080/health', (r) => process.exit(r.statusCode === 200 ? 0 : 1))"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+      start_period: 10s
+    networks:
+      - ai-network
+
+  redis:
+    container_name: rustdesk-ai-redis
+    image: redis:7-alpine
+    ports:
+      - "6379:6379"
+    volumes:
+      - redis-data:/data
+    restart: unless-stopped
+    networks:
+      - ai-network
+    command: redis-server --appendonly yes
+
+networks:
+  ai-network:
+    driver: bridge
+
+volumes:
+  redis-data:
+    driver: local

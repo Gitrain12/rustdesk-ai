@@ -1,0 +1,5 @@
+id = "rustdesk-ai-build"
+template = "rustdesk-ai-build"
+
+[mount]
+  "./rustdesk-app-package" = "/workspace/rustdesk-app-package"
