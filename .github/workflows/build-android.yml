@@ -8,17 +8,16 @@ jobs:
   build:
     runs-on: ubuntu-latest
 
-    # 关键修复：指定工作目录为你的项目路径
     defaults:
       run:
         working-directory: ./rustdesk-app-package/flutter
 
     steps:
       - name: Checkout code
-        uses: actions/checkout@v4
+        uses: actions/checkout@v5
 
       - name: Setup Java
-        uses: actions/setup-java@v4
+        uses: actions/setup-java@v5
         with:
           java-version: '17'
           distribution: 'temurin'
@@ -36,7 +35,7 @@ jobs:
         run: flutter build apk --release
 
       - name: Upload APK artifact
-        uses: actions/upload-artifact@v4
+        uses: actions/upload-artifact@v5
         with:
           name: app-release.apk
           path: build/app/outputs/flutter-apk/app-release.apk
