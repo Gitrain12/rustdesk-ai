@@ -72,12 +72,10 @@ android {
         production {
             dimension "version"
             applicationIdSuffix ""
-            // buildName 已删除，修复构建错误
         }
         development {
             dimension "version"
             applicationIdSuffix ".dev"
-            // buildName 已删除，修复构建错误
         }
     }
 
@@ -92,7 +90,8 @@ flutter {
 }
 
 dependencies {
-    implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
+    // 这里我们直接写死 Kotlin 版本，不引用变量
+    implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:1.9.0"
     implementation 'androidx.multidex:multidex:2.0.1'
 
     implementation 'androidx.core:core-ktx:1.12.0'
